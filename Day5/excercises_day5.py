@@ -133,11 +133,14 @@ print("Random element z listy_e: " + str(find_random_in_list(lista_e)))
 # druga - moze jest jakis modul gotowy???
 my_list = [10,10,20,10,10,20,10,20,20,20,40,50,40,10,30,50,50,30]
 def count_list_elements(my_list):
-    unique_my_list = remove_duplicates(my_list)
-    print(f'Unique list: {unique_my_list}')
-    for element in unique_my_list:
-        element_count = unique_my_list.count(element)
-        print(f'{element} count is: {element_count}')
+    my_list.sort()
+    print(f'My list: {my_list}')
+    list_of_counts = []
+    for element in my_list:
+        element_count = my_list.count(element)
+        list_of_counts.append(tuple((element, element_count)))
+    list_of_counts=list(set(list_of_counts))
+    list_of_counts.sort()
+    print(f'List of counted elements: {list_of_counts}')
 
-
-print("Count my_list: " + str(count_list_elements(my_list)))
+print(count_list_elements(my_list))
